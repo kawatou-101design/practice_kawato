@@ -175,6 +175,75 @@ h1 {
   letter-spacing: 0;
 }
 
+.typing-title {
+  display: grid;
+  gap: 4px;
+}
+
+.typing-line {
+  display: block;
+  width: 0;
+  max-width: max-content;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.08em solid var(--blue-700);
+}
+
+.typing-line-1 {
+  animation:
+    typingLine1 1.3s steps(10, end) 0.2s forwards,
+    typingCursor 0.8s step-end 0.2s 3;
+}
+
+.typing-line-2 {
+  border-right-color: transparent;
+  animation:
+    typingLine2 1.5s steps(9, end) 1.65s forwards,
+    typingCursor 0.8s step-end 1.65s 3;
+}
+
+.typing-line-3 {
+  border-right-color: transparent;
+  animation:
+    typingLine3 1.6s steps(9, end) 3.25s forwards,
+    typingCursor 0.8s step-end 3.25s infinite;
+}
+
+@keyframes typingLine1 {
+  to {
+    width: 10em;
+    border-right-color: transparent;
+  }
+}
+
+@keyframes typingLine2 {
+  from {
+    border-right-color: var(--blue-700);
+  }
+
+  to {
+    width: 9em;
+    border-right-color: transparent;
+  }
+}
+
+@keyframes typingLine3 {
+  from {
+    border-right-color: var(--blue-700);
+  }
+
+  to {
+    width: 9em;
+    border-right-color: var(--blue-700);
+  }
+}
+
+@keyframes typingCursor {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
 h2 {
   margin-bottom: 18px;
   color: var(--blue-900);
@@ -689,6 +758,14 @@ h3 {
     font-size: 16px;
   }
 
+    .typing-title .typing-line {
+    width: auto;
+    overflow: visible;
+    border-right: 0;
+    animation: none;
+    white-space: normal;
+  }
+
   .hero-actions,
   .hero-stats {
     grid-template-columns: 1fr;
@@ -742,5 +819,14 @@ h3 {
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-line {
+    width: auto;
+    overflow: visible;
+    border-right: 0;
+    animation: none;
   }
 }
