@@ -198,15 +198,15 @@ h1 {
 .typing-line-2 {
   border-right-color: transparent;
   animation:
-    typingLine2 1.5s steps(9, end) 1.65s forwards,
-    typingCursor 0.8s step-end 1.65s 3;
+    typingLine2 1.35s steps(9, end) 1.5s forwards,
+    typingCursor 0.8s step-end 1.5s 3;
 }
 
 .typing-line-3 {
   border-right-color: transparent;
   animation:
-    typingLine3 1.6s steps(9, end) 3.25s forwards,
-    typingCursor 0.8s step-end 3.25s infinite;
+    typingLine3 1.45s steps(9, end) 2.95s forwards,
+    typingCursor 0.8s step-end 2.95s infinite;
 }
 
 @keyframes typingLine1 {
@@ -250,8 +250,14 @@ h2 {
   font-size: clamp(28px, 3.6vw, 42px);
   line-height: 1.35;
   letter-spacing: 0;
+}
+
+.reveal-heading {
   opacity: 0;
   transform: translateY(18px);
+}
+
+.reveal-heading.is-visible {
   animation: headingFadeUp 0.75s ease-out forwards;
 }
 
@@ -797,7 +803,7 @@ h3 {
     font-size: 16px;
   }
 
-    .typing-title .typing-line {
+  .typing-title .typing-line {
     width: auto;
     overflow: visible;
     border-right: 0;
@@ -862,6 +868,12 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .reveal-heading {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
   .bars span {
     transform: scaleY(1);
     animation: none;
