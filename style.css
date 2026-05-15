@@ -258,7 +258,7 @@ h2 {
 }
 
 .reveal-heading.is-visible {
-  animation: headingFadeUp 0.75s ease-out forwards;
+  animation: headingFadeUp 0.75s ease-out 0.5s forwards;
 }
 
 @keyframes headingFadeUp {
